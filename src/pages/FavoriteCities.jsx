@@ -14,7 +14,9 @@ const FavoriteCities = observer( () => {
 
     const handleClick = () => {
         console.log(inputText);
-        //find@ anel city-neri arrayi vrov city.json
+        //if-@ chmoranal !
+        const found = cities.find(element => element.name === inputText);
+        console.log(found);
         favoriteCities.addCity(inputText);
     }
 
