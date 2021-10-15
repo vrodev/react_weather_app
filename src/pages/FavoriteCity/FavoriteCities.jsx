@@ -1,22 +1,26 @@
-import React, { useState } from "react";
-import { observer } from "mobx-react-lite";
+import React, {useState} from "react";
+import {observer} from "mobx-react-lite";
 import cities from '../../../node_modules/cities.json/cities';
 import favoriteCities from "../../mobX/favoriteCities";
-import { Div, TextField, Buttons } from "./FavoriteCitiesElements";
+import weatherLocation from "../../mobX/favoriteCities";
+import {Div, TextField, Buttons} from "./FavoriteCitiesElements";
 
-const FavoriteCities = observer( (props) => {
 
+const FavoriteCities = observer((props) => {
+
+    const cord = weatherLocation.weatherLocation.coord;
     const [inputText, setInputText] = useState('');
 
     const handleClick = () => {
         const city = cities.find(element => element.name === inputText);
+
         if (city) {
             favoriteCities.addCity({city});
             setInputText('');
+            favoriteCities.fetchWeatherLocation(city.name);
         }
     }
-
-    return(
+    return (
         <>
             <TextField
                 type='text'
@@ -33,7 +37,7 @@ const FavoriteCities = observer( (props) => {
                     <button onClick={() => favoriteCities.removeCity(city.name)}>X</button>
                     <button
                         onClick={() => {
-                            favoriteCities.fetchWeather(city.name)
+                            favoriteCities.fetchWeatherByLocationParams(cord)
                             props.history.push('/home');
                         }}
                     >

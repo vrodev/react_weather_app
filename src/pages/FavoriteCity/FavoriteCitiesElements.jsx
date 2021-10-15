@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Div = styled.div`
   width: 100px;
   height: 50px;
-  border: 5px outset aqua;
-  background-color: aqua;
+  border: 5px outset DodgerBlue;
+  background-color: DodgerBlue;
   text-align: center;
   margin: 15px;
   font-size: medium;
@@ -17,7 +17,7 @@ export const TextField = styled.input`
     border-radius: 15px;
     border: none;
     margin-bottom: 2%;
-    background: rgba(0,255,255);
+    background: DodgerBlue;
 `;
 
 export const Buttons = styled.button `
@@ -26,6 +26,6 @@ export const Buttons = styled.button `
     border-radius: 15px;
     border: none;
     margin-bottom: 2%;
-    background: rgba(0,255,255);
+    background: DodgerBlue;
     cursor:pointer;
 `;
