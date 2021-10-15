@@ -11,7 +11,7 @@ const Routing = () => {
             <Router>
                 <Navbar />
                 <Switch>
-                    {/*<Route path='/' exact component={Home} />*/}
+                    <Route path='/' exact component={FavoriteCities} />
                     <Route path='/home' exact component={Home} />
                     <Route path='/favorite_city' component={FavoriteCities} />
                 </Switch>
